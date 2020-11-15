@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block 'extra_style' %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="text-center mt-3">
+    <h5>{{title}}</h5>
+</div>
+<div class="col-md-6 mx-auto cnt my-5 py-5 px-5">
+    <form method="POST" action="{{ action }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email" required name="email">
+            <small id="emailHelp" class="form-text text-danger">{% if errors != None  %}
+                {{errors}}
+                {% endif %}
+            </small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

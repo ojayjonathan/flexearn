@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  {{ title }}
+{% endblock %}
+{% block 'extra_style' %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+{% autoescape off %}
+<div class="cnt pt-2 pl-3">
+    {{ message }}
+</div>
+
+{% endautoescape %}
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home page{% endblock %}
+{% block 'extra_style' %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block content %}
+<section style="background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);">
+    <div class="container site-hero d-flex align-items-center">
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+                <img src="{% static 'images/blue.svg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6 d-flex align-items-center ">
+                <div>
+                    <h1 class="display-4 text-center text-md-left mb-3">
+                        It's time to amplify your <strong class="text-p">online business</strong>
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam assumenda fugit labore natus
+                        molestiae nesciunt laudantium vel commodi enim nemo. Ratione quia perspiciatis, eius similique
+                        sapiente obcaecati incidunt aspernatur id?</p>
+                    <div>
+                        <a class="btn btn-primary px-3"
+                         href="{% if request.user.is_authenticated %} /dashboard/ {% else %}/register/ {% endif %}">Get started</a>
+                        <a class="btn btn-neutral px-5 ml-sm-5 ml-3" href="login/">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="background-color: #fafbfe; padding-top: 1rem;" id="how">
+    <div class="container">
+        <div class="text-center pb-5">
+            <span class="badge badge-soft-success badge-pill py-2">
+                Get started
+            </span>
+            <h2 class=" mt-4">Carefuly crafted components ready <br> to use in your project</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 px-2">
+                <div class="card-item">
+                    <img src="{% static 'images/svg/create1.svg' %}" alt="" class="img-icon mx-auto">
+                    <div class="px-2 py-2">
+                        <h5 class="text-center mt-3">Create Account</h5>
+                        <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus nam
+                            assumenda consectetur quae
+                            soluta autem dolorum in odit totam? Numquam voluptatem in harum hic amet odio, nihil atque
+                            possimus
+                            maiores.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 col-lg-4 px-2">
+                <div class="card-item">
+                    <img src="{% static 'images/svg/share.svg' %}" alt="" class="img-icon mx-auto">
+                    <div class="px-2 py-2">
+                        <h5 class="text-center mt-3">Refer Your Friends</h5>
+                        <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus nam
+                            assumenda consectetur quae
+                            soluta autem dolorum in odit totam? Numquam voluptatem in harum hic amet odio, nihil atque
+                            possimus
+                            maiores.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 px-2">
+                <div class="card-item">
+                    <img src="{% static 'images/svg/earn.svg' %}" alt="" class="img-icon mx-auto">
+                    <div class="px-2 py-2">
+                        <h5 class="text-center mt-3">Earn</h5>
+                        <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus nam
+                            assumenda consectetur quae
+                            soluta autem dolorum in odit totam? Numquam voluptatem in harum hic amet odio, nihil atque
+                            possimus
+                            maiores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
