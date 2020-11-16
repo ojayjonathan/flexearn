@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (index, dashboard,loginView, changePassword, 
               register, email_confirmation, logoutView, setNewPassword,
-              invite,activate_account, resend_account_confirmation)
+              invite,activate_account, resend_account_confirmation, terms)
 
 urlpatterns = [
     path('', index, name="index"),
@@ -14,6 +14,8 @@ urlpatterns = [
     path("invite/<str:q>",invite,name="invite"),
     path("activate/<uidb64>/<token>/",activate_account,name="activate"),
     path("resend-confirmation/",resend_account_confirmation),
-    path("set-new-password/<uidb64>/<token>",setNewPassword,name='set-new-password')
+    path("set-new-password/<uidb64>/<token>",setNewPassword,name='set-new-password'),
+    path("terms/", terms, name="terms")
+
  
 ]

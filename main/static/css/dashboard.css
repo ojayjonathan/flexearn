@@ -519,7 +519,7 @@ a.label:hover, a.label:focus {
 
 .panel-widget .large {
   color: #373b45;
-  font-size: 2em;
+  font-size: 1.4em;
 }
 
 .panel-settings {
@@ -1200,7 +1200,7 @@ p.back-link {
 .link{
   font-size:8px;
   color:#33a4fb;
-  margin: 13px auto;
+  margin: 5px auto;
   font-family: sans-serif;
   outline-width: 0;
   border: none;
@@ -1313,17 +1313,7 @@ p.back-link {
   -webkit-text-fill-color: transparent;
   transition: all 265ms ease-in;
 }
-/* timer */
 
-/* .wrap {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  height: 310px;
-} */
 
 a {
   text-decoration: none;
@@ -1400,7 +1390,7 @@ h2 strong {
   font-weight: 700;
   color: #de4848;
   font-size: 2rem;
-  font-family: 'Lato',"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;;
 }
 .countdown .figure .top:after, .countdown .figure .bottom-back:after {
   content: "";

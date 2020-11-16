@@ -11,16 +11,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
 		integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
 		crossorigin="anonymous" />
-
 	<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
-
-	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
 		rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+
 </head>
 
 
@@ -83,7 +77,7 @@
 	</div>
 	<!--/.sidebar-->
 
-	<div class="col-12 col-md-9 offset-md-3 col-lg-10 offset-lg-2 main">
+	<div class="col-12 col-sm-12 col-md-9 offset-md-3 col-lg-10 offset-lg-2 main">
 		<div class="row mt-4">
 			<ol class="breadcrumb">
 				<li><a href="/">
@@ -180,22 +174,26 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-12">
-				<h5>
+			<div class="col-lg-12 mt-1">
+				<h6>
+					<strong style="color:#152c5b;">ACOUNT STATUS - </strong>
 					{% if profile.account_status == 'A' %}
 					<span class="tag-btn bg-success px-3">
-						activated
+						Activated
 					</span>
 					{% else %}
-					<span class="tag-btn btn-danger px-3">
-						inactive
+					<span class="tag-btn btn-danger px-3 mr-5">
+						Inactive
 					</span>
+					<small class="d-inline-block text-danger">
+						Please deposit <strong>ksh 300</strong> to paybill <strong>9934577</strong> to activate your account
+					</small>
 					{% endif %}
-				</h5>
+				</h6>
+
 			</div>
 		</div>
 		<!--/.row-->
-
 		<div class="">
 			<div class="row panel panel-container ">
 				<div class="col-sm-6 col-md-3 col-lg-3">
@@ -220,7 +218,7 @@
 						<div>
 							<!--   -->
 							<div class="tooltip1">
-								<span class="tooltiptext d-block" id="myTooltip">Copy to clipboard</span>
+								<small class="tooltiptext d-block" id="myTooltip">Copy to clipboard</small>
 								<button onclick="inviteLink('myTooltip')" onmouseout="outFunc('myTooltip')"
 									class="clipBtn"><em class="fa fa-xl fa-copy color-blue"></em>
 								</button>
@@ -293,7 +291,7 @@
 							<tr>
 								<th scope="col"></th>
 								<th scope="col">username</th>
-								<th scope="col">status</th>
+								<th scope="col">account status</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -407,10 +405,6 @@
 					</ul>
 				</div>
 			</div>
-			<!--/.col-->
-			<!-- <div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
-			</div> -->
 		</div>
 		<!--/.row-->
 	</div>
@@ -427,6 +421,7 @@
 		crossorigin="anonymous"></script>
 	<!-- <script src="{% static 'js/easypiechart.js' %}"></script>
 	<script src="{% static 'js/easypiechart-data.js' %}"></script> -->
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 	<!-- <script src="{% static 'js/bootstrap-datepicker.js' %}"></script> -->
 	<script src="{% static 'js/custom.js' %}"></script>

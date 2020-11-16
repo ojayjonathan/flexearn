@@ -248,3 +248,6 @@ def invite(request, q):
     request.session['INVITED_BY'] = q
     request.session.set_expiry(172800)
     return HttpResponseRedirect(reverse('register'))
+
+def terms(request):
+    return render(request, 'login.html')
