@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserCreationForm, LoginForm, PasswordResetForm
-from .models import Profile, UserNotification,  PaymentDate
+from .models import Profile, UserNotification,  PaymentDate, Invite
 import string
 import secrets
 import datetime
@@ -42,7 +42,6 @@ def dashboard(request):
         "minutes": int((distance_in_seconds % (60 * 60)) / (60)),
         "seconds": int((distance_in_seconds % (60)))
     }
-
     return render(request, 'dashboard.html', {
         'profile': profile,
         'notifications': notifications,
@@ -100,11 +99,13 @@ def register(request):
                     invite_link=request.session.get('INVITED_BY')).first()
                 if invited_by is not None and invited_by.user is not profile.user:
                     profile.refered_by = invited_by.user
+                    profile.save()
                     UserNotification(
                         user=invited_by.user,
                         text=f"Your friend {profile.user.username[:3]}*** has joined, you will earn when they activate their account",
                         notification_type='Friend join',
                     ).save()
+                    Invite(user=invited_by, invitee=profile.user.username).save()
             profile.save()
             subject = 'Flexearn Registration'
             message = render_to_string('activate_account.html', {
@@ -249,5 +250,6 @@ def invite(request, q):
     request.session.set_expiry(172800)
     return HttpResponseRedirect(reverse('register'))
 
+
 def terms(request):
-    return render(request, 'login.html')
+    return render(request, 'terms.html')

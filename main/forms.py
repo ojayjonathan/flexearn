@@ -15,7 +15,6 @@ User = get_user_model()
 
 class UserCreationForm(forms.Form):
     password1 = forms.CharField(max_length=50)
-    password2 = forms.CharField(max_length=50)
     phone_number = forms.CharField(max_length=12)
     username = forms.CharField(max_length=50)
     email = forms.CharField(max_length=50)
@@ -50,13 +49,6 @@ class UserCreationForm(forms.Form):
         if password and len(password) < 6 or len(password) > 50:
             raise ValidationError("password must be between 6-50 characters")
         return password
-
-    def clean_password2(self):
-        password1 = self.cleaned_data.get('password1')
-        password2 = self.cleaned_data.get('password2')
-        if not (password1 == password2):
-            raise ValidationError("Passwords didn't match")
-        return password2
 
     def save(self, commit=False):
         user = User.objects.create_user(

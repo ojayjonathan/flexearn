@@ -63,7 +63,7 @@ function outFunc(tooltip_id) {
 		tooltip.innerHTML = "Copy invite";
 	}
 	else {
-		tooltip.innerHTML = "Copy to clipboard";
+		tooltip.innerHTML = "Copy invite link";
 	}
 
 }

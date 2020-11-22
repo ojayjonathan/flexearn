@@ -62,3 +62,8 @@ class PaymentDate(models.Model):
     date = models.DateTimeField()    
     def __str__(self):
         return 'next_payment date'   
+
+class Invite(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    invitee = models.CharField(max_length=100, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
