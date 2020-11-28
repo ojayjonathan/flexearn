@@ -10,13 +10,13 @@
 <body>
     <h5>
             Hi  <strong>{{ user.email }}</strong>,<br>
-            Your created an account at <a href="https://flexearn.co.ke">flexearn.co.ke</a> 
+            Your created an account at <a href="https://flexearn.ew.r.appspot.com">flexearn.co.ke</a> 
             
    </h5>
 
     {% autoescape off %}
     <h5>Please click on the link to confirm your registration</h5>
-    <a href="http://127.0.0.1:8000{% url 'activate' uidb64=uid token=token %}">http://127.0.0.1:8000{% url 'activate' uidb64=uid token=token %}</a>
+    <a href="https://flexearn.ew.r.appspot.com{% url 'activate' uidb64=uid token=token %}">https://flexearn.ew.r.appspot.com{% url 'activate' uidb64=uid token=token %}</a>
     {% endautoescape %}
 </body>
 

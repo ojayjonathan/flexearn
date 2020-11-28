@@ -1,19 +1,19 @@
+import string
+import secrets
+import datetime
 from django.shortcuts import render
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import UserCreationForm, LoginForm, PasswordResetForm
-from .models import Profile, UserNotification,  PaymentDate, Invite
-import string
-import secrets
-import datetime
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .token_generator import account_activation_token
+from .forms import UserCreationForm, LoginForm, PasswordResetForm
+from .models import Profile, UserNotification,  PaymentDate, Invite
 
 User = get_user_model()
 
@@ -74,7 +74,7 @@ def loginView(request):
 
 def register(request):
     if request.user.is_authenticated:
-        HttpResponseRedirect(reverse('dashboard'))
+        return HttpResponseRedirect(reverse('dashboard'))
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -245,7 +245,7 @@ def email_confirmation(request):
 
 def invite(request, q):
     if request.user.is_authenticated:
-        HttpResponseRedirect(reverse('dashboard'))
+        return HttpResponseRedirect(reverse('dashboard'))
     request.session['INVITED_BY'] = q
     request.session.set_expiry(172800)
     return HttpResponseRedirect(reverse('register'))
@@ -253,3 +253,6 @@ def invite(request, q):
 
 def terms(request):
     return render(request, 'terms.html')
+
+def error(request):
+    return render(request, '404.html')

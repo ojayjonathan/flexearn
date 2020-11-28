@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 {% block content %}
-<div class="col-md-6 mx-auto cnt my-5 py-5 px-5">
+<div class="col-md-6 mx-auto cnt my-4 py-3 px-5">
     <h5 class="mb-3 fh">Login</h5>
     <div class="text-danger">{{ errors }}</div>
     <form method="POST" action="{% url 'login' %}">
@@ -30,7 +30,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <span><a href="{% url 'register' %}">Register </a>instead.</span>
-    <span><a href="{% url 'reset_p' %}" class="ml-4">Forgot  </a>password</span>
+    <span class="d-inline-block ml-1"><a href="{% url 'reset_p' %}">forgot  </a>password</span>
 </div>
 <script>
     function showPassword(ele){
